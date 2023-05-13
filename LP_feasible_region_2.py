@@ -48,10 +48,9 @@ def lattice():
     return lattice_points, corners
 
 
-def vertex_testing(vertex_list):
+def lattice_point_testing(vertex_list):
 
     """
-    #
     max_z = 0
     star_x, star_y = 0, 0
     for i in range(len(vertex_list)):
@@ -133,7 +132,7 @@ if __name__ == '__main__':
     f1, f2, f3 = 150 - x1, 120 - x1 / 2, 300 - 3 * x1
 
     integer_points, vertices_ = lattice()
-    optimal_ = vertex_testing(vertices_)
+    optimal_ = lattice_point_testing(integer_points)
 
     feasible_region(x1, f1, f2, f3, ['x + y = 150', 'x + 2y = 240', '3x + y = 300'],
                     integer_points, vertices_, optimal_)
