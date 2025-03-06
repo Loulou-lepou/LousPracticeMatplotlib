@@ -45,6 +45,9 @@ ax.plot(seattle_avg["MONTH"], seattle_avg["MLY-PRCP-NORMAL"],
 ax.plot(austin_weather["MONTH"], austin_weather["MLY-PRCP-NORMAL"], 
         marker="v", linestyle="--", label="austin")
 ax.legend()
+# set_xticks() before set_xticklabels() to avoid UserWarning: 
+# FixedFormatter should only be used together with FixedLocator (tick positions)
+ax.set_xticks(range(len(month_order)))     
 ax.set_xlabel("Time (months)")
 ax.set_ylabel("Precipitation (inches)")
 ax.set_xticklabels(month_order, rotation=45)  # Rotate x-axis labels for readability
