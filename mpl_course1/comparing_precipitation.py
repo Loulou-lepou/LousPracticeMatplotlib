@@ -35,12 +35,19 @@ austin_weather = austin_weather.sort_values("MONTH")
 
 # print(austin_weather[["MONTH", "MLY-PRCP-NORMAL"]].head(20))
 
+plt.cla()
 plt.clf()
 plt.close("all")
+
 fig, ax = plt.subplots()
-ax.plot(seattle_avg["MONTH"], seattle_avg["MLY-PRCP-NORMAL"], label="seattle")
-ax.plot(austin_weather["MONTH"], austin_weather["MLY-PRCP-NORMAL"], label="austin")
+ax.plot(seattle_avg["MONTH"], seattle_avg["MLY-PRCP-NORMAL"], 
+        marker="o", linestyle="--", label="seattle")
+ax.plot(austin_weather["MONTH"], austin_weather["MLY-PRCP-NORMAL"], 
+        marker="v", linestyle="--", label="austin")
 ax.legend()
+ax.set_xlabel("Time (months)")
+ax.set_ylabel("Precipitation (inches)")
 ax.set_xticklabels(month_order, rotation=45)  # Rotate x-axis labels for readability
-plt.title("Comparing the precipitation in two cities")
+ax.set_title("Weather patterns in Austin and Seattle")
+plt.tight_layout()
 plt.show()
